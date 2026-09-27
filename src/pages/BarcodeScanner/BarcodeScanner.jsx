@@ -1704,82 +1704,40 @@ const completeSaleWithPayment = async ({
                 </div>
 
                 <div className="cart-item-actions">
-
-
                   <div className="quantity-section">
-  <div className="current-quantity">
-    Quantity: <strong>{item.quantity}</strong>
-  </div>
+                    <div className="quantity-display">
+                      <span>Quantity</span>
+                      <strong>{item.quantity}</strong>
+                    </div>
 
-  <button
-    type="button"
-    className="set-quantity-btn"
-    onClick={() => openQuantityModal(item)}
-  >
-    Set Quantity
-  </button>
-</div>
+                    <button
+                      type="button"
+                      className="set-quantity-btn"
+                      onClick={() => openQuantityModal(item)}
+                    >
+                      Set Quantity
+                    </button>
+
+                    <button
+                      type="button"
+                      className="remove-cart-btn"
+                      onClick={() => removeFromCart(item.productId)}
+                    >
+                      Remove
+                    </button>
+                  </div>
 
                   <strong className="cart-item-total">
-
                     ₱
-                    {(
-                      Number(
-                        item.sellingPrice
-                      ) *
-                      Number(
-                        item.quantity
-                      )
-                    ).toLocaleString(
+                    {(Number(item.sellingPrice) * Number(item.quantity)).toLocaleString(
                       "en-PH",
                       {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
                       }
                     )}
-
                   </strong>
-
                 </div>
-
-             
-<div className="cart-item-actions">
-  <div className="quantity-section">
-    <div className="quantity-display">
-      <span>Quantity</span>
-      <strong>{item.quantity}</strong>
-    </div>
-
-    <button
-      type="button"
-      className="set-quantity-btn"
-      onClick={() => openQuantityModal(item)}
-    >
-      Set Quantity
-    </button>
-
-    <button
-      type="button"
-      className="remove-cart-btn"
-      onClick={() => removeFromCart(item.productId)}
-    >
-      Remove
-    </button>
-  </div>
-
-  <strong className="cart-item-total">
-    ₱
-    {(Number(item.sellingPrice) * Number(item.quantity)).toLocaleString(
-      "en-PH",
-      {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      }
-    )}
-  </strong>
-</div>
-
-
 
               </div>
 
